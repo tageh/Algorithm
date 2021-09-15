@@ -11,10 +11,8 @@ class LinkedList:
         self.head = None
         self.tail = None
 
-<<<<<<< HEAD
 
     
-=======
     #Task 1
         
 
@@ -44,15 +42,5 @@ class LinkedList:
             current = current.next
             
 
-liste = LinkedList()
 
-liste.addEnd(32)
-liste.addEnd(23)
-liste.addEnd(9)
-liste.print()
 
-print("Head: " + str(liste.head.data))
-print("Tail: " + str(liste.tail.data))
-print("Prev Tail: " + str(liste.tail.prev.data))
-
->>>>>>> c0f467148c86cd9f77b944927f22a6010a2ee168
