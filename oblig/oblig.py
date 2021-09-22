@@ -12,6 +12,22 @@ class LinkedList:
     def __init__(self):
         self.head, self.tail = None, None
 
+    def getOptionList(self):
+        return [
+            "Delete an item first in the list",
+            "Add an item to the end of the list",
+            "Delete an item at the end of the list",
+            "Delete an item with the specified value from the list",
+            "Add an item after an item with the specified value",
+            "Add an item in front of an item with the specified value",
+            "Print the length of the list",
+            "Count the number of occurrences of element with given value in the list, this number is printed",
+            "Print the entire list (9b for backwards)",
+            "Delete the entire list. How many items were deleted is printed",
+            "Quickly generate a large list",
+        ]
+
+
     def emptyList(self, node):
         if node is None:
             print("List is empty")
