@@ -1,0 +1,2 @@
+from oblig import LinkedList
+
