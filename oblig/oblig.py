@@ -63,7 +63,6 @@ class LinkedList:
             curr = curr.next.next
         return
 
-    # TODO: Fix that a user can add a value after the same value
     def addNodeAfterValue(self, val, insVal):
         current = self.head
 
