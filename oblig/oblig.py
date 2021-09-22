@@ -41,20 +41,30 @@ class LinkedList:
         if current is None:
             print("List is empty")
             return
-       
-        if current is data:
-            self.deleteFirst()
 
-        while current.next is not data:
+        # Important concept: A node is deleted when there is no other nodes pointing to it
+        def deleteCurrentNode(node): # Gets the node to be deleted
+            # Since it's a doubly list, the node has two "connections" that needs to be rewired
+            # - The previous node needs to point to the next(next) node
+            # - The next node next to point to the previous(previous) node
+            if node.prev is None: # If we are on the first node we have to manipulate the head
+                print("HERE")
+                self.head = node.next
+            else:
+                x = node.prev # Go one node back
+                x.next = node.next # Could also be x.next.next
+
+            if node.next is None: # If we are on the last node we have to manipulate the tail
+                self.tail = node.prev
+            else: 
+                x = node.next # Go to the next node
+                x = node.prev # Could also be x.prev.prev
+            return
+
+        while current is not None: # Traverse through entire list, delete nodes that match
+            if data == current.data:
+                deleteCurrentNode(current)
             current = current.next
-            break
-        
-        print(str(current.data) + "\n")
-        #current.next = current.next.next
-        #current.next.next = current
-
-
-
 
     # Task 9 - Print entire list
     def print(self, backwards = False):
@@ -80,16 +90,19 @@ class LinkedList:
 
 list = LinkedList()
 
+list.addEnd(2)
 list.addEnd(1)
 list.addEnd(2)
 list.addEnd(3)
 list.addEnd(4)
 list.addEnd(5)
+list.addEnd(2)
 list.addEnd(6)
 list.addEnd(7)
+list.addEnd(2)
 
-# list.deleteSelectedValue(2)
-list.deleteFirst()
+list.deleteSelectedValue(2)
+# list.deleteFirst()
 list.print()
 
 print("Head: " + str(list.head.data))
