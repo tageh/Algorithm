@@ -31,7 +31,7 @@ while True:
         print("Last value deleted")
     elif select == '4':
         value = input("What value would you like to delete? ")
-        list.deleteSelectedValue(value)
+        list.deleteNodesWithValue(value)
         print("value '" + value + "deleted")
     elif select == '5':
         valueAdd = input("What value would you like to add? ")
