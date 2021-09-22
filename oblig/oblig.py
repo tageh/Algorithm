@@ -107,7 +107,38 @@ class LinkedList:
 
 
     # Task 6 - Add an item in front of an item with the specified value
-    
+    def addItemBeforeValue(self, nodeValue, insertValue ):
+        # Find nodes with the specified value
+        # Insert a node after it
+        
+        current = self.tail
+
+        if current is None:
+            print("List is empty")
+            return
+        
+        while current is not None:
+            newNode = Node(insertValue)
+            if current.data == nodeValue:
+                if current.prev is not None:
+                    x = current.prev # This is none
+                    newNode.prev = x
+                    current.prev = newNode
+                    newNode.next = current
+                    x = current.prev.prev
+                    x.next = newNode
+                
+                if current.prev is None: # If we are on tail, update the tail
+                    self.head = newNode
+                    current.prev = newNode
+                    newNode.next = current
+                    
+                
+                
+                # print(self.tail.prev.data)
+                # print("HERE FUCKER")
+
+            current = current.prev       
 
     # Task 9 - Print entire list
     def print(self, backwards = False):
@@ -143,11 +174,11 @@ list.addEnd(2)
 list.addEnd(6)
 list.addEnd(10)
 list.addEnd(2)
-list.addEnd(7)
 
 #list.deleteSelectedValue(2)
 # list.deleteFirst()
-list.addItemAfterValue(2, 2012512)
+#list.addItemAfterValue(2, 2012512)
+list.addItemBeforeValue(2, 2012512)
 list.print()
 
 print("Head: " + str(list.head.data))
