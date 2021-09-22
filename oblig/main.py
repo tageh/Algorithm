@@ -11,7 +11,7 @@ options = [
     "Add an item in front of an item with the specified value",
     "Print the length of the list",
     "Count the number of occurrences of element with given value in the list, this number is printed",
-    "Print the entire list",
+    "Print the entire list (9b for backwards)",
     "Delete the entire list. How many items were deleted is printed",
     "Quickly generate a large list",
 ]
@@ -54,9 +54,11 @@ while True:
         value = input("Which number do you want to see the occurrences of? ")
         print("The value '" + value + "' occurrences " +str(linkedList.countOccourenes(value)) + " times")
     elif select == '9':
-        # TODO: Allow user to print the list backwards
         print("Printing list:")
         linkedList.printList()
+    elif select == '9b':
+        print("Printing list backwards:")
+        linkedList.printList(True)
     elif select == '10':
         linkedList.deleteList()
         print("List deleted")
