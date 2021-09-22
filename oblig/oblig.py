@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+#TODO: Own function for checking and printing that the list is empty
+
 
 class Node:
     def __init__(self, data):
@@ -36,12 +38,13 @@ class LinkedList:
         self.tail.next = None # Set the previous node's next pointer to null
 
     # Task 4 - Delete all nodes with specified value
-    def deleteSelectedValue(self, data):
+    def deleteSelectedValue(self, value):
         current = self.head
         if current is None:
             print("List is empty")
             return
 
+        # TODO: Rename X Value
         # Important concept: A node is deleted when there is no other nodes pointing to it
         def deleteCurrentNode(node): # Gets the node to be deleted
             # Since it's a doubly list, the node has two "connections" that needs to be rewired
@@ -61,9 +64,50 @@ class LinkedList:
             return
 
         while current is not None: # Traverse through entire list, delete nodes that match
-            if data == current.data:
+            if value == current.value:
                 deleteCurrentNode(current)
             current = current.next
+
+    # Task 5 - Add an item after an item with the specified value.
+    # TODO: Fix that a user can add a value after the same value
+    def addItemAfterValue(self, nodeValue, insertValue ):
+        # Find nodes with the specified value
+        # Insert a node after it
+        
+        current = self.head
+        if current is None:
+            print("List is empty")
+            return
+        
+        while current is not None:
+            newNode = Node(insertValue)
+            if current.data == nodeValue:
+                # Insert node after
+                # The current node needs to point at the new node
+                # The node after the new node needs to point to the new node
+                if current.next is not None:
+                    x = current.next # This is none
+                    newNode.next = x
+                    current.next = newNode
+                    newNode.prev = current
+                    x = current.next
+                    x.prev = newNode
+                
+                if current.next is None: # If we are on tail, update the tail
+                    self.tail = newNode
+                    current.next = newNode
+                    newNode.prev = current
+                    
+                
+                
+                # print(self.tail.prev.data)
+                # print("HERE FUCKER")
+
+            current = current.next       
+
+
+    # Task 6 - Add an item in front of an item with the specified value
+    
 
     # Task 9 - Print entire list
     def print(self, backwards = False):
@@ -101,8 +145,9 @@ list.addEnd(10)
 list.addEnd(2)
 list.addEnd(7)
 
-list.deleteSelectedValue(2)
+#list.deleteSelectedValue(2)
 # list.deleteFirst()
+list.addItemAfterValue(2, 2012512)
 list.print()
 
 print("Head: " + str(list.head.data))
