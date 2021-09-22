@@ -214,7 +214,7 @@ list.addItemBeforeValue(2, 2012512)
 #list.print()
 print("Length is: " + str(list.printLength()))
 print("occurrences: " + str(list.countNumberOfOccurrences(2)))
-print("Delete: " + str(list.deleteList()))
+#print("Delete: " + str(list.deleteList()))
 list.print()
 '''
 print("Head: " + str(list.head.data))
