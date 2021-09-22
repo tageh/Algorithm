@@ -39,6 +39,7 @@ class LinkedList:
 
     def deleteNodesWithValue(self, value):
         curr = self.head
+        
         if curr is None:
             print("List is empty")
             return
@@ -91,12 +92,7 @@ class LinkedList:
             current = current.next
         return   
 
-
-    # Task 6 - Add an item in front of an item with the specified value
-    def addItemBeforeValue(self, nodeValue, insertValue):
-        # Find nodes with the specified value
-        # Insert a node after it
-        
+    def addNodeBeforeValue(self, val, insVal):
         current = self.tail
 
         if current is None:
@@ -104,22 +100,25 @@ class LinkedList:
             return
         
         while current is not None:
-            newNode = Node(insertValue)
-            if current.data == nodeValue:
+            newNode = Node(insVal)
+            if current.data == val:
                 if current.prev is not None:
-                    x = current.prev # This is none
-                    newNode.prev = x
+                    tmp = current.prev
+                    newNode.prev = tmp
                     current.prev = newNode
                     newNode.next = current
-                    x = current.prev.prev
-                    x.next = newNode
+                    tmp.next = newNode
+                    current = current.prev.prev
+                    continue
                 
-                if current.prev is None: # If we are on tail, update the tail
+                # If on first node, update head
+                if current.prev is None:
                     self.head = newNode
                     current.prev = newNode
                     newNode.next = current
-                    
-            current = current.prev   
+                    break
+            current = current.prev
+        return   
 
     # Task 7 - Print the length of the list
     def printLength(self):
@@ -182,3 +181,25 @@ class LinkedList:
             current = current.next
             count += 1
         return count
+
+
+list = LinkedList()
+
+list.addEndNode(3)
+list.addEndNode(1)
+list.addEndNode(2)
+list.addEndNode(3)
+list.addEndNode(4)
+list.addEndNode(5)
+list.addEndNode(3)
+list.addEndNode(10)
+list.addEndNode(3)
+
+list.addNodeBeforeValue(3, 3000)
+#list.deleteNodesWithValue(2)
+list.print()
+
+print("Head: " + str(list.head.data))
+print("Tail: " + str(list.tail.data))
+print("Next Head: " + str(list.head.next.data))
+print("Prev Tail: " + str(list.tail.prev.data))
