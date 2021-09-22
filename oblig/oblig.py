@@ -10,27 +10,25 @@ class Node:
 
 class LinkedList:
     def __init__(self):
-        self.head = None
-        self.tail = None
+        self.head, self.tail = None, None
 
-    # Task 1 - Delete the first node
-    def deleteFirst(self):
+    def deleteFirstNode(self):
         self.head = self.head.next
 
-    # Task 2 Add one node to the end of the list
-    def addEnd(self, data):
+    def addEndNode(self, data):
         newNode = Node(data)
         
-        if self.head is None: # If there are no nodes in the list make head and tail point to newly created node
+        # If there are no nodes
+        if self.head is None: 
             self.head = newNode
             self.tail = newNode
             return
 
-        if self.head is not None: # If there are nodes in the list
-            newNode.prev = self.tail # The new nodes previous value should be the current tail
-            self.tail.next = newNode # Access the last node and make it's next value set to the newly created node
-            newNode.prev = self.tail # Newnode points to the previous node (since we have a doubly list)
-            self.tail = newNode # Set the tail variable to the new node
+        if self.head is not None:
+            newNode.prev = self.tail
+            # Access the last node and make it's next value set to the newly created node
+            self.tail.next = newNode 
+            self.tail = newNode
 
     # Task 3 - Delete the last node
     def deleteLast(self):
@@ -196,25 +194,25 @@ class LinkedList:
 
 list = LinkedList()
 
-list.addEnd(2)
-list.addEnd(1)
-list.addEnd(2)
-list.addEnd(3)
-list.addEnd(4)
-list.addEnd(5)
-list.addEnd(2)
-list.addEnd(6)
-list.addEnd(10)
-list.addEnd(2)
+list.addEndNode(2)
+list.addEndNode(1)
+list.addEndNode(2)
+list.addEndNode(3)
+list.addEndNode(4)
+list.addEndNode(5)
+list.addEndNode(2)
+list.addEndNode(6)
+list.addEndNode(10)
+list.addEndNode(2)
 
 #list.deleteSelectedValue(2)
 #list.deleteFirst()
 #list.addItemAfterValue(2, 2012512)
-list.addItemBeforeValue(2, 2012512)
+# list.addItemBeforeValue(2, 2012512)
 #list.print()
-print("Length is: " + str(list.printLength()))
-print("occurrences: " + str(list.countNumberOfOccurrences(2)))
-print("Delete: " + str(list.deleteList()))
+# print("Length is: " + str(list.printLength()))
+# print("occurrences: " + str(list.countNumberOfOccurrences(2)))
+# print("Delete: " + str(list.deleteList()))
 list.print()
 '''
 print("Head: " + str(list.head.data))
