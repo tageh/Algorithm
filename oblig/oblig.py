@@ -14,6 +14,7 @@ class LinkedList:
 
     def deleteFirstNode(self):
         self.head = self.head.next
+        return
 
     def addEndNode(self, data):
         newNode = Node(data)
@@ -29,41 +30,38 @@ class LinkedList:
             # Access the last node and make it's next value set to the newly created node
             self.tail.next = newNode 
             self.tail = newNode
+        return
 
     def deleteLastNode(self):
         self.tail = self.tail.prev
         self.tail.next = None
+        return
 
-    # Task 4 - Delete all nodes with specified value
-    def deleteSelectedValue(self, value):
-        current = self.head
-        if current is None:
+    def deleteNodesWithValue(self, value):
+        curr = self.head
+        if curr is None:
             print("List is empty")
             return
 
-        # TODO: Rename X Value
-        # Important concept: A node is deleted when there is no other nodes pointing to it
-        def deleteCurrentNode(node): # Gets the node to be deleted
-            # Since it's a doubly list, the node has two "connections" that needs to be rewired
-            # - The previous node needs to point to the next(next) node
-            # - The next node next to point to the previous(previous) node
-            if node.prev is None: # If we are on the first node we have to manipulate the head
-                self.head = node.next
-            else:
-                x = node.prev # Go one node back
-                x.next = node.next # Could also be x.next.next
+        while curr is not None:
+            if value == curr.data:
+                # If previous node doesn't exist we have to move head
+                if curr.prev is None:
+                    self.head = curr.next
+                
+                # If next node doesn't exist we have to move tail
+                if curr.next is None:
+                    self.tail = curr.prev
 
-            if node.next is None: # If we are on the last node we have to manipulate the tail
-                self.tail = node.prev
-            else: 
-                x = node.next # Go to the next node
-                x.prev = node.prev # Could also be x.prev.prev
-            return
-
-        while current is not None: # Traverse through entire list, delete nodes that match
-            if value == current.value:
-                deleteCurrentNode(current)
-            current = current.next
+                if curr.prev is not None:
+                    tmp = curr.prev
+                    tmp.next = curr.next
+                
+                if curr.next is not None:
+                    tmp = curr.next
+                    tmp.prev = curr.prev
+            curr = curr.next
+        return
 
     # Task 5 - Add an item after an item with the specified value.
     # TODO: Fix that a user can add a value after the same value
