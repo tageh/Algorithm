@@ -1,61 +1,74 @@
+import random
 import oblig
 
-list = oblig.LinkedList()
-
+linkedList = oblig.LinkedList()
+options = [
+    "Delete an item first in the list",
+    "Add an item to the end of the list",
+    "Delete an item at the end of the list",
+    "Delete an item with the specified value from the list",
+    "Add an item after an item with the specified value",
+    "Add an item in front of an item with the specified value",
+    "Print the length of the list",
+    "Count the number of occurrences of element with given value in the list, this number is printed",
+    "Print the entire list",
+    "Delete the entire list. How many items were deleted is printed",
+    "Quickly generate a large list",
+]
 
 def showInfo():
-    print("1: Delete an item first in the list")
-    print("2: Add an item to the end of the list")
-    print("3: Delete an item at the end of the list")
-    print("4: Delete an item with the specified value from the list")
-    print("5: Add an item after an item with the specified value")
-    print("6: Add an item in front of an item with the specified value")
-    print("7: Print the length of the list")
-    print("8: Count the number of occurrences of element with given value in the list, this number is printed")
-    print("9: Print the entire list")
-    print("10: Delete the entire list. How many items were deleted is printed")
+    for i, option in enumerate(options):
+        print("{}: {}".format(i+1, option))
 
 showInfo()
 while True:
     select = input()
 
     if select == '1':
-       list.deleteFirstNode()
+       linkedList.deleteFirstNode()
        print("First value deleted")
     elif select == '2':
         value = input("What value would you like to add? ")
-        list.addEndNode(value)
+        linkedList.addEndNode(value)
         print("Value '" + value +"' added")
     elif select == '3':
-        list.deleteLastNode()
+        linkedList.deleteLastNode()
         print("Last value deleted")
     elif select == '4':
         value = input("What value would you like to delete? ")
-        list.deleteNodesWithValue(value)
+        linkedList.deleteNodesWithValue(value)
         print("value '" + value + "deleted")
     elif select == '5':
         valueAdd = input("What value would you like to add? ")
-        valueWhere = input("Wich number do you want the value after? ")
-        list.addItemAfterValue(valueWhere, valueAdd)
+        valueWhere = input("Which number do you want the value after? ")
+        linkedList.addNodeBeforeValue(valueWhere, valueAdd)
         print("value '" + valueAdd + "' added after " +valueWhere)
     elif select == '6':
         valueAdd = input("What value would you like to add? ")
         valueWhere = input("Wich number do you want the value before? ")
-        list.addItemBeforeValue(valueWhere, valueAdd)
+        linkedList.addNodeAfterValue(valueWhere, valueAdd)
         print("value '" + valueAdd + "' added before " +valueWhere)
     elif select == '7':
-        print("Length of list is: " +str(list.printLength()))
+        print("Length of list is: " +str(linkedList.listLength()))
     elif select == '8':
         value = input("Which number do you want to see the occurrences of? ")
-        print("The value '" + value + "' occurrences " +str(list.countNumberOfOccurrences(value)) + " times")
+        print("The value '" + value + "' occurrences " +str(linkedList.countOccourenes(value)) + " times")
     elif select == '9':
+        # TODO: Allow user to print the list backwards
         print("Printing list:")
-        list.print()
+        linkedList.printList()
     elif select == '10':
-        list.deleteList()
+        linkedList.deleteList()
         print("List deleted")
     elif select == '0':
         print("Exit program")
         break
+    elif select == '11':
+        amount = int(input("How many nodes do you want?: "))
+        print("Select the range you want the numbers to be within")
+        lower = int(input("From(inclusive): "))
+        upper = int(input("To(not inclusive): "))
+        for node in range(amount):
+            linkedList.addEndNode(random.randrange(lower, upper))
     else:
         print("Enter a valid number!!!!")
