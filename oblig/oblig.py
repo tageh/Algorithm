@@ -70,7 +70,7 @@ class LinkedList:
 
     # Task 5 - Add an item after an item with the specified value.
     # TODO: Fix that a user can add a value after the same value
-    def addItemAfterValue(self, nodeValue, insertValue ):
+    def addItemAfterValue(self, nodeValue, insertValue):
         # Find nodes with the specified value
         # Insert a node after it
         
@@ -97,17 +97,12 @@ class LinkedList:
                     self.tail = newNode
                     current.next = newNode
                     newNode.prev = current
-                    
-                
-                
-                # print(self.tail.prev.data)
-                # print("HERE FUCKER")
-
+                   
             current = current.next       
 
 
     # Task 6 - Add an item in front of an item with the specified value
-    def addItemBeforeValue(self, nodeValue, insertValue ):
+    def addItemBeforeValue(self, nodeValue, insertValue):
         # Find nodes with the specified value
         # Insert a node after it
         
@@ -133,21 +128,36 @@ class LinkedList:
                     current.prev = newNode
                     newNode.next = current
                     
-                
-                
-                # print(self.tail.prev.data)
-                # print("HERE FUCKER")
-
             current = current.prev       
 
     # Task 7 - Print the length of the list
     def printLength(self):
         current = self.head
+        if current is None:
+            print("List is empty")
+            return
+
         count = 0
         while current is not None:
             current = current.next
             count += 1
         return count
+
+    # Task 8 - Count the number of occurrences of element with given value in the list, this number is printed
+    def countNumberOfOccurrences(self, value):
+        current = self.head
+        if current is None:
+            print("List is empty")
+            return
+        
+        count = 0
+        while current is not None:
+            if current.data == value:
+                count += 1
+
+            current = current.next
+        return count
+
 
     # Task 9 - Print entire list
     def print(self, backwards = False):
@@ -190,6 +200,7 @@ list.addEnd(2)
 list.addItemBeforeValue(2, 2012512)
 #list.print()
 print("Length is: " + str(list.printLength()))
+print("occurrences: " + str(list.countNumberOfOccurrences(2)))
 
 print("Head: " + str(list.head.data))
 print("Tail: " + str(list.tail.data))
