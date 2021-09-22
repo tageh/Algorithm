@@ -11,12 +11,11 @@ class LinkedList:
         self.head = None
         self.tail = None
 
-    #Task 1 - Delete the first node
+    # Task 1 - Delete the first node
     def deleteFirst(self):
         self.head = self.head.next
-        self.head.prev = None
 
-    #Task 2 Add one node to the end of the list
+    # Task 2 Add one node to the end of the list
     def addEnd(self, data):
         newNode = Node(data)
         
@@ -31,12 +30,12 @@ class LinkedList:
             newNode.prev = self.tail # Newnode points to the previous node (since we have a doubly list)
             self.tail = newNode # Set the tail variable to the new node
 
-    #Task 3 - Delete the last node
+    # Task 3 - Delete the last node
     def deleteLast(self):
         self.tail = self.tail.prev # Set the tail to the previous node
         self.tail.next = None # Set the previous node's next pointer to null
 
-    #Task 4 - Delete all nodes with specified value
+    # Task 4 - Delete all nodes with specified value
     def deleteSelectedValue(self, data):
         current = self.head
         if current is None:
@@ -57,7 +56,7 @@ class LinkedList:
 
 
 
-    #Task 9 - Print entire list
+    # Task 9 - Print entire list
     def print(self, backwards = False):
         # Check if there is a node in the list
         current = self.head
@@ -77,27 +76,22 @@ class LinkedList:
 
         
             
+# Testing
 
-liste = LinkedList()
+list = LinkedList()
 
-liste.addEnd(1)
-liste.addEnd(2)
-liste.addEnd(3)
-liste.addEnd(4)
-liste.addEnd(5)
-liste.addEnd(6)
-liste.addEnd(7)
+list.addEnd(1)
+list.addEnd(2)
+list.addEnd(3)
+list.addEnd(4)
+list.addEnd(5)
+list.addEnd(6)
+list.addEnd(7)
 
-# liste.deleteSelectedValue(2)
-liste.print(True)
+# list.deleteSelectedValue(2)
+list.deleteFirst()
+list.print()
 
-
-
-
-
-
-
-
-print("Head: " + str(liste.head.data))
-print("Tail: " + str(liste.tail.data))
-print("Prev Tail: " + str(liste.tail.prev.data))
+print("Head: " + str(list.head.data))
+print("Tail: " + str(list.tail.data))
+print("Prev Tail: " + str(list.tail.prev.data))
