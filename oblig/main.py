@@ -1,49 +1,6 @@
-from oblig import LinkedList
+import oblig
 
-showInfo()
-
-while True:
-    select = input()
-
-    switch(select):
-        case 1:
-            list.deleteFirst()
-            break
-        case 2:
-            value = input("What value would you like to add?")
-            list.addEndNode(value)
-            break
-        case 3:
-            list.deleteLast()
-            break
-        case 4:
-            value = input("What value would you like to delete?")
-            list.deleteSelectedValue(value)
-            break
-        case 5:
-            valueAdd = input("What value would you like to add")
-            valueWhere = input("Wich number do you want the value after?")
-            liste.addItemAfterValue(valueWhere, valueAdd)
-            break
-        case 6:
-            valueAdd = input("What value would you like to add")
-            valueWhere = input("Wich number do you want the value before?")
-            list.addItemBeforeValue(valueWhere, valueAdd)
-            break
-        case 7:
-            list.printLength()
-            break
-        case 8:
-            liste.countNumberOfOccurrences()
-            break
-        case 9:
-            list.print()
-            break
-        case 10:
-            list.deleteList()
-            break
-        default:
-            print("Enter a valid value")
+list = oblig.LinkedList()
 
 
 def showInfo():
@@ -57,3 +14,48 @@ def showInfo():
     print("8: Count the number of occurrences of element with given value in the list, this number is printed")
     print("9: Print the entire list")
     print("10: Delete the entire list. How many items were deleted is printed")
+
+showInfo()
+while True:
+    select = input()
+
+    if select == '1':
+       list.deleteFirstNode()
+       print("First value deleted")
+    elif select == '2':
+        value = input("What value would you like to add? ")
+        list.addEndNode(value)
+        print("Value '" + value +"' added")
+    elif select == '3':
+        list.deleteLastNode()
+        print("Last value deleted")
+    elif select == '4':
+        value = input("What value would you like to delete? ")
+        list.deleteSelectedValue(value)
+        print("value '" + value + "deleted")
+    elif select == '5':
+        valueAdd = input("What value would you like to add? ")
+        valueWhere = input("Wich number do you want the value after? ")
+        list.addItemAfterValue(valueWhere, valueAdd)
+        print("value '" + valueAdd + "' added after " +valueWhere)
+    elif select == '6':
+        valueAdd = input("What value would you like to add? ")
+        valueWhere = input("Wich number do you want the value before? ")
+        list.addItemBeforeValue(valueWhere, valueAdd)
+        print("value '" + valueAdd + "' added before " +valueWhere)
+    elif select == '7':
+        print("Length of list is: " +str(list.printLength()))
+    elif select == '8':
+        value = input("Which number do you want to see the occurrences of? ")
+        print("The value '" + value + "' occurrences " +str(list.countNumberOfOccurrences(value)) + " times")
+    elif select == '9':
+        print("Printing list:")
+        list.print()
+    elif select == '10':
+        list.deleteList()
+        print("List deleted")
+    elif select == '0':
+        print("Exit program")
+        break
+    else:
+        print("Enter a valid number!!!!")

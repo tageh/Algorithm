@@ -188,34 +188,3 @@ class LinkedList:
             current = current.next
             count += 1
         return count
-            
-# Testing
-
-list = LinkedList()
-
-list.addEndNode(2)
-list.addEndNode(1)
-list.addEndNode(2)
-list.addEndNode(3)
-list.addEndNode(4)
-list.addEndNode(5)
-list.addEndNode(2)
-list.addEndNode(6)
-list.addEndNode(10)
-list.addEndNode(2)
-
-#list.deleteSelectedValue(2)
-#list.deleteFirst()
-#list.addItemAfterValue(2, 2012512)
-# list.addItemBeforeValue(2, 2012512)
-#list.print()
-# print("Length is: " + str(list.printLength()))
-# print("occurrences: " + str(list.countNumberOfOccurrences(2)))
-# print("Delete: " + str(list.deleteList()))
-list.print()
-'''
-print("Head: " + str(list.head.data))
-print("Tail: " + str(list.tail.data))
-print("Next Head: " + str(list.head.next.data))
-print("Prev Tail: " + str(list.tail.prev.data))
-'''
