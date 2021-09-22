@@ -12,6 +12,12 @@ class LinkedList:
     def __init__(self):
         self.head, self.tail = None, None
 
+    def emptyList(self, node):
+        if node is None:
+            print("List is empty")
+            return True
+        return False
+
     def deleteFirstNode(self):
         self.head = self.head.next
         return
@@ -39,9 +45,8 @@ class LinkedList:
 
     def deleteNodesWithValue(self, value):
         curr = self.head
-        
-        if curr is None:
-            print("List is empty")
+
+        if self.emptyList(curr):
             return
 
         while curr is not None:
@@ -65,141 +70,115 @@ class LinkedList:
         return
 
     def addNodeAfterValue(self, val, insVal):
-        current = self.head
+        curr = self.head
 
-        if current is None:
-            print("List is empty")
+        if self.emptyList(curr):
             return
         
-        while current is not None:
+        while curr is not None:
             newNode = Node(insVal)
-            if current.data == val:
-                if current.next is not None:
-                    tmp = current.next
+            if curr.data == val:
+                if curr.next is not None:
+                    tmp = curr.next
                     newNode.next = tmp
-                    current.next = newNode
-                    newNode.prev = current
+                    curr.next = newNode
+                    newNode.prev = curr
                     tmp.prev = newNode
-                    current = current.next.next
+                    curr = curr.next.next
                     continue
                 
                 # If on last node, update tail
-                if current.next is None:
+                if curr.next is None:
                     self.tail = newNode
-                    current.next = newNode
-                    newNode.prev = current
+                    curr.next = newNode
+                    newNode.prev = curr
                     break
-            current = current.next
+            curr = curr.next
         return   
 
     def addNodeBeforeValue(self, val, insVal):
-        current = self.tail
+        curr = self.tail
 
-        if current is None:
-            print("List is empty")
+        if self.emptyList(curr):
             return
         
-        while current is not None:
+        while curr is not None:
             newNode = Node(insVal)
-            if current.data == val:
-                if current.prev is not None:
-                    tmp = current.prev
+            if curr.data == val:
+                if curr.prev is not None:
+                    tmp = curr.prev
                     newNode.prev = tmp
-                    current.prev = newNode
-                    newNode.next = current
+                    curr.prev = newNode
+                    newNode.next = curr
                     tmp.next = newNode
-                    current = current.prev.prev
+                    curr = curr.prev.prev
                     continue
                 
                 # If on first node, update head
-                if current.prev is None:
+                if curr.prev is None:
                     self.head = newNode
-                    current.prev = newNode
-                    newNode.next = current
+                    curr.prev = newNode
+                    newNode.next = curr
                     break
-            current = current.prev
+            curr = curr.prev
         return   
 
-    # Task 7 - Print the length of the list
-    def printLength(self):
-        current = self.head
-        if current is None:
-            print("List is empty")
+    
+    def listLength(self):
+        curr = self.head
+        count = 0
+
+        if self.emptyList(curr):
             return
 
-        count = 0
-        while current is not None:
-            current = current.next
+        while curr is not None:
+            curr = curr.next
             count += 1
         return count
 
-    # Task 8 - Count the number of occurrences of element with given value in the list, this number is printed
-    def countNumberOfOccurrences(self, value):
-        current = self.head
-        if current is None:
-            print("List is empty")
+    def countOccourences(self, value):
+        curr = self.head
+        count = 0
+        
+        if self.emptyList(curr):
             return
         
-        count = 0
-        while current is not None:
-            if current.data == value:
+        while curr is not None:
+            if curr.data == value:
                 count += 1
 
-            current = current.next
+            curr = curr.next
         return count
 
 
-    # Task 9 - Print entire list
-    def print(self, backwards = False):
-        # Check if there is a node in the list
-        current = self.head
-        if current is None:
-            print("Empty list")
+    def printList(self, backwards = False):
+        curr = self.head
+        
+        if self.emptyList(curr):
             return
         
-        if backwards is True: # If backwards is set to True print the list backwards
-            current = self.tail
-            while current is not None:
-                print(current.data)
-                current = current.prev
+        if backwards is True:
+            curr = self.tail
+            while curr is not None:
+                print(curr.data)
+                curr = curr.prev
         else: 
-            while current is not None:
-                print(current.data)
-                current = current.next
+            while curr is not None:
+                print(curr.data)
+                curr = curr.next
+        return
 
                 
-    # Task 10 - Delete the entire list. How many items were deleted is printed
     def deleteList(self):
-        current = self.head
-        if current is None:
-            print("List is empty")
-            return
+        curr = self.head
         count = 0
-        while current is not None:
+
+        if self.emptyList(curr):
+            return
+
+        while curr is not None:
             self.head = None
             self.tail = None
-            current = current.next
+            curr = curr.next
             count += 1
         return count
-
-
-list = LinkedList()
-
-list.addEndNode(3)
-list.addEndNode(1)
-list.addEndNode(2)
-list.addEndNode(3)
-list.addEndNode(4)
-list.addEndNode(5)
-list.addEndNode(3)
-list.addEndNode(10)
-list.addEndNode(3)
-
-list.addNodeBeforeValue(3, 3000)
-#list.deleteNodesWithValue(2)
-list.print()
-
-print("Head: " + str(list.head.data))
-print("Tail: " + str(list.tail.data))
-print("Next Head: " + str(list.head.next.data))
-print("Prev Tail: " + str(list.tail.prev.data))
