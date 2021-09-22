@@ -11,29 +11,31 @@ class LinkedList:
         self.head = None
         self.tail = None
 
-    #Task 1
+    #Task 1 - Delete the first node
     def deleteFirst(self):
         self.head = self.head.next
         self.head.prev = None
 
-    #Task 2
+    #Task 2 Add one node to the end of the list
     def addEnd(self, data):
         newNode = Node(data)
-        if self.head is None:
+        if self.head is None: # If there are no nodes in the list make head and tail point to newly created node
             self.head = newNode
             self.tail = newNode
             return
 
-        newNode.prev = self.tail
-        self.tail.next = newNode
-        self.tail = newNode
+        if self.head is not None: # If there are nodes in the list
+            newNode.prev = self.tail # The new nodes previous value should be the current tail
+            self.tail.next = newNode # Access the last node and make it's next value set to the newly created node
+            newNode.prev = self.tail # Newnode points to the previous node (since we have a doubly list)
+            self.tail = newNode # Set the tail variable to the new node
 
-    #Task 3
+    #Task 3 - Delete the last node
     def deleteLast(self):
         self.tail = self.tail.prev
         self.tail.next = None
 
-    #Task 4
+    #Task 4 - Delete all nodes with specified value
     def deleteSelectedValue(self, data):
         current = self.head
         if current is None:
@@ -54,7 +56,7 @@ class LinkedList:
 
 
 
-    #Task 9
+    #Task 9 - Print entire list
     def print(self):
         current = self.head
         if current is None:
@@ -75,8 +77,9 @@ liste.addEnd(4)
 liste.addEnd(5)
 liste.addEnd(6)
 liste.addEnd(7)
-liste.deleteSelectedValue(2)
-liste.print()
+
+# liste.deleteSelectedValue(2)
+#liste.print()
 
 
 
