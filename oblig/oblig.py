@@ -30,10 +30,9 @@ class LinkedList:
             self.tail.next = newNode 
             self.tail = newNode
 
-    # Task 3 - Delete the last node
-    def deleteLast(self):
-        self.tail = self.tail.prev # Set the tail to the previous node
-        self.tail.next = None # Set the previous node's next pointer to null
+    def deleteLastNode(self):
+        self.tail = self.tail.prev
+        self.tail.next = None
 
     # Task 4 - Delete all nodes with specified value
     def deleteSelectedValue(self, value):
