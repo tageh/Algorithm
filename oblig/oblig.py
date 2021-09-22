@@ -177,7 +177,20 @@ class LinkedList:
                 print(current.data)
                 current = current.next
 
-        
+                
+    # Task 10 - Delete the entire list. How many items were deleted is printed
+    def deleteList(self):
+        current = self.head
+        if current is None:
+            print("List is empty")
+            return
+        count = 0
+        while current is not None:
+            self.head = None
+            self.tail = None
+            current = current.next
+            count += 1
+        return count
             
 # Testing
 
@@ -201,8 +214,11 @@ list.addItemBeforeValue(2, 2012512)
 #list.print()
 print("Length is: " + str(list.printLength()))
 print("occurrences: " + str(list.countNumberOfOccurrences(2)))
-
+print("Delete: " + str(list.deleteList()))
+list.print()
+'''
 print("Head: " + str(list.head.data))
 print("Tail: " + str(list.tail.data))
 print("Next Head: " + str(list.head.next.data))
 print("Prev Tail: " + str(list.tail.prev.data))
+'''
