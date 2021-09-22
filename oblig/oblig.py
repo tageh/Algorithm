@@ -140,6 +140,15 @@ class LinkedList:
 
             current = current.prev       
 
+    # Task 7 - Print the length of the list
+    def printLength(self):
+        current = self.head
+        count = 0
+        while current is not None:
+            current = current.next
+            count += 1
+        return count
+
     # Task 9 - Print entire list
     def print(self, backwards = False):
         # Check if there is a node in the list
@@ -176,10 +185,11 @@ list.addEnd(10)
 list.addEnd(2)
 
 #list.deleteSelectedValue(2)
-# list.deleteFirst()
+#list.deleteFirst()
 #list.addItemAfterValue(2, 2012512)
 list.addItemBeforeValue(2, 2012512)
-list.print()
+#list.print()
+print("Length is: " + str(list.printLength()))
 
 print("Head: " + str(list.head.data))
 print("Tail: " + str(list.tail.data))
