@@ -27,7 +27,7 @@ class LinkedList:
 
         if self.head is not None:
             newNode.prev = self.tail
-            # Access the last node and make it's next value set to the newly created node
+            # Access the last node and make next value same as newly created node
             self.tail.next = newNode 
             self.tail = newNode
         return
@@ -45,11 +45,11 @@ class LinkedList:
 
         while curr is not None:
             if value == curr.data:
-                # If previous node doesn't exist we have to move head
+                # If previous node doesn't exist, move head
                 if curr.prev is None:
                     self.head = curr.next
                 
-                # If next node doesn't exist we have to move tail
+                # If next node doesn't exist, move tail
                 if curr.next is None:
                     self.tail = curr.prev
 
@@ -60,40 +60,37 @@ class LinkedList:
                 if curr.next is not None:
                     tmp = curr.next
                     tmp.prev = curr.prev
-            curr = curr.next
+            curr = curr.next.next
         return
 
-    # Task 5 - Add an item after an item with the specified value.
     # TODO: Fix that a user can add a value after the same value
-    def addItemAfterValue(self, nodeValue, insertValue):
-        # Find nodes with the specified value
-        # Insert a node after it
-        
+    def addNodeAfterValue(self, val, insVal):
         current = self.head
+
         if current is None:
             print("List is empty")
             return
         
         while current is not None:
-            newNode = Node(insertValue)
-            if current.data == nodeValue:
-                # Insert node after
-                # The current node needs to point at the new node
-                # The node after the new node needs to point to the new node
+            newNode = Node(insVal)
+            if current.data == val:
                 if current.next is not None:
-                    x = current.next # This is none
-                    newNode.next = x
+                    tmp = current.next
+                    newNode.next = tmp
                     current.next = newNode
                     newNode.prev = current
-                    x = current.next
-                    x.prev = newNode
+                    tmp.prev = newNode
+                    current = current.next.next
+                    continue
                 
-                if current.next is None: # If we are on tail, update the tail
+                # If on last node, update tail
+                if current.next is None:
                     self.tail = newNode
                     current.next = newNode
                     newNode.prev = current
-                   
-            current = current.next       
+                    break
+            current = current.next
+        return   
 
 
     # Task 6 - Add an item in front of an item with the specified value
@@ -123,7 +120,7 @@ class LinkedList:
                     current.prev = newNode
                     newNode.next = current
                     
-            current = current.prev       
+            current = current.prev   
 
     # Task 7 - Print the length of the list
     def printLength(self):
