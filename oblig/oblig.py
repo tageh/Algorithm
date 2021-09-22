@@ -48,7 +48,6 @@ class LinkedList:
             # - The previous node needs to point to the next(next) node
             # - The next node next to point to the previous(previous) node
             if node.prev is None: # If we are on the first node we have to manipulate the head
-                print("HERE")
                 self.head = node.next
             else:
                 x = node.prev # Go one node back
@@ -58,7 +57,7 @@ class LinkedList:
                 self.tail = node.prev
             else: 
                 x = node.next # Go to the next node
-                x = node.prev # Could also be x.prev.prev
+                x.prev = node.prev # Could also be x.prev.prev
             return
 
         while current is not None: # Traverse through entire list, delete nodes that match
@@ -98,8 +97,9 @@ list.addEnd(4)
 list.addEnd(5)
 list.addEnd(2)
 list.addEnd(6)
-list.addEnd(7)
+list.addEnd(10)
 list.addEnd(2)
+list.addEnd(7)
 
 list.deleteSelectedValue(2)
 # list.deleteFirst()
@@ -107,4 +107,5 @@ list.print()
 
 print("Head: " + str(list.head.data))
 print("Tail: " + str(list.tail.data))
+print("Next Head: " + str(list.head.next.data))
 print("Prev Tail: " + str(list.tail.prev.data))
