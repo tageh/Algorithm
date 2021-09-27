@@ -1,5 +1,5 @@
 import random
-import oblig
+import LinkedList
 
 linkedList = oblig.LinkedList()
 options = linkedList.getOptionList()
