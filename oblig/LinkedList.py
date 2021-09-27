@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 #TODO: Own function for checking and printing that the list is empty
-import Node
-
+from Node import Node
 class LinkedList:
-    def __init__(self):
+    def __init__(self, Node):
         self.head, self.tail = None, None
+        self.Node = Node
 
     def getOptionList(self):
         return [

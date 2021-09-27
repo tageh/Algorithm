@@ -1,7 +1,9 @@
 import random
 import LinkedList
+import Node
 
-linkedList = oblig.LinkedList()
+
+linkedList = LinkedList.LinkedList(Node)
 options = linkedList.getOptionList()
 for i, option in enumerate(options):
     print("{}: {}".format(i+1, option))
@@ -37,7 +39,7 @@ while True:
         print("Length of list is: " +str(linkedList.listLength()))
     elif select == '8':
         value = input("Which number do you want to see the occurrences of? ")
-        print("The value '" + value + "' occurrences " +str(linkedList.countOccourenes(value)) + " times")
+        print("The value '" + value + "' occurrences " +str(linkedList.countOccourences(value)) + " times")
     elif select == '9':
         print("Printing list:")
         linkedList.printList()
