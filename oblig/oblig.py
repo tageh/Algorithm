@@ -24,7 +24,7 @@ class LinkedList:
             "Count the number of occurrences of element with given value in the list, this number is printed",
             "Print the entire list (9b for backwards)",
             "Delete the entire list. How many items were deleted is printed",
-            "Quickly generate a large list",
+            "Quickly generate a large list"
         ]
 
 
