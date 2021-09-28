@@ -25,13 +25,13 @@ class LinkedList:
             return False
         return True
 
-    # 1
+    # 1 O(1)
     def delete_first_node(self):
         node = self.head
         self.head = self.head.next
         return node
     
-    # 2
+    # 2 O(1)
     def add_node_to_end(self, data):
         newNode = self.node(data)
         
@@ -48,14 +48,14 @@ class LinkedList:
             self.tail = newNode
         return
     
-    # 3
+    # 3 O(1)
     def delete_last_node(self):
         node = self.tail
         self.tail = self.tail.prev
         self.tail.next = None
         return node
 
-    #4
+    #4 O(n)
     def delete_nodes_with_value(self, value):
         curr = self.head
         nodes_deleted = 0
@@ -83,7 +83,7 @@ class LinkedList:
             return nodes_deleted
         return False
 
-    #5
+    #5 O(n)
     def add_node_after_value(self, val, insVal):
         curr = self.head
 
@@ -110,7 +110,7 @@ class LinkedList:
             return True
         return False
 
-    #6
+    #6 O(n)
     def add_node_before_value(self, val, insVal):
         curr = self.tail
 
@@ -138,7 +138,7 @@ class LinkedList:
         return False
 
     
-    #7
+    #7 O(n)
     def get_list_length(self):
         curr = self.head
         count = 0
@@ -150,7 +150,7 @@ class LinkedList:
             return count
         return False
 
-    #8
+    #8 O(n)
     def get_occourences(self, value):
         curr = self.head
         count = 0
@@ -165,7 +165,7 @@ class LinkedList:
         return False
 
 
-    #9
+    #9 O(n)
     def get_list(self, backwards = False):
         curr = self.head
         list = []
@@ -183,7 +183,7 @@ class LinkedList:
             return list
         return False
 
-    #10           
+    #10 O(1)
     def delete_list(self):
         curr = self.head
 
