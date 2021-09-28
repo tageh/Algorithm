@@ -6,7 +6,7 @@ class LinkedList:
         self.head, self.tail = None, None
         self.Node = Node
 
-    def getOptionList(self):
+    def get_option_list(self):
         return [
             "Delete an item first in the list",
             "Add an item to the end of the list",
@@ -22,17 +22,17 @@ class LinkedList:
         ]
 
 
-    def emptyList(self, node):
+    def empty_list(self, node):
         if node is None:
             print("List is empty")
             return True
         return False
 
-    def deleteFirstNode(self):
+    def delete_first_node(self):
         self.head = self.head.next
         return
 
-    def addEndNode(self, data):
+    def add_end_node(self, data):
         newNode = Node(data)
         
         # If there are no nodes
@@ -48,12 +48,12 @@ class LinkedList:
             self.tail = newNode
         return
 
-    def deleteLastNode(self):
+    def delete_last_node(self):
         self.tail = self.tail.prev
         self.tail.next = None
         return
 
-    def deleteNodesWithValue(self, value):
+    def delete_nodes_with_value(self, value):
         curr = self.head
 
         if self.emptyList(curr):
@@ -79,7 +79,7 @@ class LinkedList:
             curr = curr.next.next
         return
 
-    def addNodeAfterValue(self, val, insVal):
+    def add_node_after_value(self, val, insVal):
         curr = self.head
 
         if self.emptyList(curr):
@@ -106,7 +106,7 @@ class LinkedList:
             curr = curr.next
         return   
 
-    def addNodeBeforeValue(self, val, insVal):
+    def add_node_before_value(self, val, insVal):
         curr = self.tail
 
         if self.emptyList(curr):
@@ -134,7 +134,7 @@ class LinkedList:
         return   
 
     
-    def listLength(self):
+    def list_length(self):
         curr = self.head
         count = 0
 
@@ -146,7 +146,7 @@ class LinkedList:
             count += 1
         return count
 
-    def countOccourences(self, value):
+    def count_occourences(self, value):
         curr = self.head
         count = 0
         
@@ -161,7 +161,7 @@ class LinkedList:
         return count
 
 
-    def printList(self, backwards = False):
+    def print_list(self, backwards = False):
         curr = self.head
         
         if self.emptyList(curr):
@@ -179,7 +179,7 @@ class LinkedList:
         return
 
                 
-    def deleteList(self):
+    def delete_list(self):
         curr = self.head
         count = 0
 
