@@ -64,5 +64,11 @@ while True:
         upper = int(input("To(not inclusive): "))
         for node in range(amount):
             linked_list.add_node_to_end(str(randrange(lower, upper)))
+    elif select == '12':
+        amount = 10
+        lower = 1
+        upper = 21
+        for node in range(amount):
+            linked_list.add_node_to_end(str(randrange(lower, upper)))
     else:
         print("Enter a valid number!")
