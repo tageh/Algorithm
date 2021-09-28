@@ -107,7 +107,7 @@ class LinkedList:
                         newNode.prev = curr
                         break
                 curr = curr.next
-                return True
+            return True
         return False
 
     #6
