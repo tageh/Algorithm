@@ -3,7 +3,6 @@ from random import randrange
 import LinkedList
 from Node import Node
 
-
 linked_list = LinkedList.LinkedList(Node)
 options = linked_list.get_option_list()
 
@@ -41,7 +40,8 @@ while True:
         print("Length of list is: " + str(linked_list.get_list_length()))
     elif select == '8':
         value = input("Which number do you want to see the occurrences of? ")
-        print("The value '{}' occurrences {} times".format(value, str(linked_list.get_occourences(value))))
+        print("The value '{}' occurrences {} times".format(
+            value, str(linked_list.get_occourences(value))))
     elif select == '9':
         nodes = linked_list.get_list()
 
@@ -53,13 +53,19 @@ while True:
         for i, node in enumerate(nodes):
             print("{}:   {}".format(i, node))
     elif select == '9b':
-        print("Printing list backwards:")
         nodes = linked_list.get_list(True)
+
+        if not nodes:
+            print("List is empty")
+            continue
+
+        print("Printing list backwards:")
         for i, node in enumerate(nodes):
             print("{}:   {}".format(i, node))
 
     elif select == '10':
-        print("The list ist deleted. Total elements deleted was '{}'".format(linked_list.delete_list()))
+        print("The list ist deleted. Total elements deleted was '{}'".format(
+            linked_list.delete_list()))
     elif select == '0':
         print("Exit program")
         break
