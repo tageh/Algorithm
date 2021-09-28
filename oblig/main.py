@@ -16,17 +16,14 @@ while True:
     if select == '1':
        print("The first node with the value {} was deleted".format(linked_list.delete_first_node().data))
     elif select == '2':
-        value = input("What value would you like to add? ")
+        value = input("What value would you like to add?")
         linked_list.add_node_to_end(value)
         print("Value '" + value +"' added")
     elif select == '3':
         print("Last value with the value {} was deleted".format(linked_list.delete_last_node().data))
     elif select == '4':
         value = input("What value would you like to delete? ")
-        print(type(value))
-        print("Over this is the type")
-        linked_list.delete_nodes_with_value(value)
-        print("value '" + value + "' deleted")
+        print("'{}' was deleted '{}' times".format(value, linked_list.delete_nodes_with_value(value)))
     elif select == '5':
         valueAdd = input("What value would you like to add? ")
         valueWhere = input("Which number do you want the value after? ")
@@ -46,8 +43,8 @@ while True:
         print("Entire list:")
         # Get length of list, then loop that many times
         nodes = linked_list.get_list()
-        for node in nodes:
-            print(node)
+        for i, node in enumerate(nodes):
+            print("{}:   {}".format(i, node))
     elif select == '9b':
         print("Printing list backwards:")
         nodes = linked_list.get_list(True)

@@ -58,9 +58,12 @@ class LinkedList:
     #4
     def delete_nodes_with_value(self, value):
         curr = self.head
+        nodes_deleted = 0
+
         if self.node_exists(curr):
             while curr is not None:
                 if value == curr.data:
+                    nodes_deleted += 1
                     # If previous node doesn't exist, move head
                     if curr.prev is None:
                         self.head = curr.next
@@ -77,7 +80,7 @@ class LinkedList:
                         tmp = curr.next
                         tmp.prev = curr.prev
                 curr = curr.next
-            return True
+            return nodes_deleted
         return False
 
     #5
