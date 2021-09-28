@@ -50,14 +50,14 @@ class LinkedList:
     
     # 3
     def delete_last_node(self):
+        node = self.tail
         self.tail = self.tail.prev
         self.tail.next = None
-        return
+        return node
 
     #4
     def delete_nodes_with_value(self, value):
         curr = self.head
-
         if self.node_exists(curr):
             while curr is not None:
                 if value == curr.data:
@@ -76,7 +76,7 @@ class LinkedList:
                     if curr.next is not None:
                         tmp = curr.next
                         tmp.prev = curr.prev
-                curr = curr.next.next
+                curr = curr.next
             return True
         return False
 

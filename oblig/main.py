@@ -11,7 +11,7 @@ for i, option in enumerate(options):
     print("{}: {}".format(i+1, option))
 
 while True:
-    select = input()
+    select = input("~ ")  
 
     if select == '1':
        print("The first node with the value {} was deleted".format(linked_list.delete_first_node().data))
@@ -20,21 +20,22 @@ while True:
         linked_list.add_node_to_end(value)
         print("Value '" + value +"' added")
     elif select == '3':
-        linked_list.delete_last_node()
-        print("Last value deleted")
+        print("Last value with the value {} was deleted".format(linked_list.delete_last_node().data))
     elif select == '4':
         value = input("What value would you like to delete? ")
+        print(type(value))
+        print("Over this is the type")
         linked_list.delete_nodes_with_value(value)
-        print("value '" + value + "deleted")
+        print("value '" + value + "' deleted")
     elif select == '5':
         valueAdd = input("What value would you like to add? ")
         valueWhere = input("Which number do you want the value after? ")
-        linked_list.add_node_before_value(valueWhere, valueAdd)
+        linked_list.add_node_after_value(valueWhere, valueAdd)
         print("value '" + valueAdd + "' added after " +valueWhere)
     elif select == '6':
         valueAdd = input("What value would you like to add? ")
         valueWhere = input("Wich number do you want the value before? ")
-        linked_list.add_node_after_value(valueWhere, valueAdd)
+        linked_list.add_node_before_value(valueWhere, valueAdd)
         print("value '" + valueAdd + "' added before " +valueWhere)
     elif select == '7':
         print("Length of list is: " +str(linked_list.listLength()))
@@ -65,6 +66,6 @@ while True:
         lower = int(input("From(inclusive): "))
         upper = int(input("To(not inclusive): "))
         for node in range(amount):
-            linked_list.add_node_to_end(randrange(lower, upper))
+            linked_list.add_node_to_end(str(randrange(lower, upper)))
     else:
-        print("Enter a valid number!!!!")
+        print("Enter a valid number!")
