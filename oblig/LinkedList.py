@@ -2,7 +2,7 @@
 class LinkedList:
     def __init__(self, Node):
         self.head, self.tail = None, None
-        self.Node = Node
+        self.node = Node
 
     def get_option_list(self):
         return [
@@ -25,11 +25,13 @@ class LinkedList:
             return False
         return True
 
+    # 1
     def delete_first_node(self):
+        node = self.head
         self.head = self.head.next
-        return
+        return node
     
-    def add_end_node(self, data):
+    # 2
     def add_node_to_end(self, data):
         newNode = self.node(data)
         
@@ -46,11 +48,13 @@ class LinkedList:
             self.tail = newNode
         return
     
+    # 3
     def delete_last_node(self):
         self.tail = self.tail.prev
         self.tail.next = None
         return
 
+    #4
     def delete_nodes_with_value(self, value):
         curr = self.head
 
@@ -76,6 +80,7 @@ class LinkedList:
             return True
         return False
 
+    #5
     def add_node_after_value(self, val, insVal):
         curr = self.head
 
@@ -102,6 +107,7 @@ class LinkedList:
                 return True
         return False
 
+    #6
     def add_node_before_value(self, val, insVal):
         curr = self.tail
 
@@ -129,7 +135,7 @@ class LinkedList:
         return False
 
     
-    def list_length(self):
+    #7
     def get_list_length(self):
         curr = self.head
         count = 0
@@ -141,7 +147,7 @@ class LinkedList:
             return count
         return False
 
-    def count_occourences(self, value):
+    #8
     def get_occourences(self, value):
         curr = self.head
         count = 0
@@ -156,7 +162,7 @@ class LinkedList:
         return False
 
 
-    def print_list(self, backwards = False):
+    #9
     def get_list(self, backwards = False):
         curr = self.head
         list = []
@@ -174,6 +180,7 @@ class LinkedList:
             return list
         return False
 
+    #10           
     def delete_list(self):
         curr = self.head
         count = 0
