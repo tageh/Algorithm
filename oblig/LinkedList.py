@@ -186,13 +186,11 @@ class LinkedList:
     #10           
     def delete_list(self):
         curr = self.head
-        count = 0
 
         if self.node_exists(curr):
-            while curr is not None:
-                self.head = None
-                self.tail = None
-                curr = curr.next
-                count += 1
+            count = self.get_list_length() 
+            self.head = None
+            self.tail = None
+            
             return count
         return False

@@ -11,49 +11,55 @@ for i, option in enumerate(options):
     print("{}: {}".format(i+1, option))
 
 while True:
-    select = input("~ ")  
+    select = input("~ ")
 
     if select == '1':
-       print("The first node with the value {} was deleted".format(linked_list.delete_first_node().data))
+        print("The first node with the value {} was deleted".format(
+            linked_list.delete_first_node().data))
     elif select == '2':
         value = input("What value would you like to add?")
         linked_list.add_node_to_end(value)
-        print("Value '" + value +"' added")
+        print("Value '" + value + "' added")
     elif select == '3':
-        print("Last value with the value {} was deleted".format(linked_list.delete_last_node().data))
+        print("Last value with the value {} was deleted".format(
+            linked_list.delete_last_node().data))
     elif select == '4':
         value = input("What value would you like to delete? ")
-        print("'{}' was deleted '{}' times".format(value, linked_list.delete_nodes_with_value(value)))
+        print("'{}' was deleted '{}' times".format(
+            value, linked_list.delete_nodes_with_value(value)))
     elif select == '5':
         valueAdd = input("What value would you like to add? ")
         valueWhere = input("Which number do you want the value after? ")
         linked_list.add_node_after_value(valueWhere, valueAdd)
-        print("value '" + valueAdd + "' added after " +valueWhere)
+        print("value '" + valueAdd + "' added after " + valueWhere)
     elif select == '6':
         valueAdd = input("What value would you like to add? ")
         valueWhere = input("Wich number do you want the value before? ")
         linked_list.add_node_before_value(valueWhere, valueAdd)
-        print("value '" + valueAdd + "' added before " +valueWhere)
+        print("value '" + valueAdd + "' added before " + valueWhere)
     elif select == '7':
-        print("Length of list is: " +str(linked_list.listLength()))
+        print("Length of list is: " + str(linked_list.get_list_length()))
     elif select == '8':
         value = input("Which number do you want to see the occurrences of? ")
-        print("The value '" + value + "' occurrences " +str(linked_list.get_occourences(value)) + " times")
+        print("The value '{}' occurrences {} times".format(value, str(linked_list.get_occourences(value))))
     elif select == '9':
-        print("Entire list:")
-        # Get length of list, then loop that many times
         nodes = linked_list.get_list()
+
+        if not nodes:
+            print("List is empty")
+            continue
+
+        print("Entire list:")
         for i, node in enumerate(nodes):
             print("{}:   {}".format(i, node))
     elif select == '9b':
         print("Printing list backwards:")
         nodes = linked_list.get_list(True)
-        for node in nodes:
-            print(node)
-    
+        for i, node in enumerate(nodes):
+            print("{}:   {}".format(i, node))
+
     elif select == '10':
-        linked_list.delete_list()
-        print("List deleted")
+        print("The list ist deleted. Total elements deleted was '{}'".format(linked_list.delete_list()))
     elif select == '0':
         print("Exit program")
         break
