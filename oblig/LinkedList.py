@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-#TODO: Own function for checking and printing that the list is empty
 from Node import Node
 class LinkedList:
     def __init__(self, Node):
@@ -33,7 +32,7 @@ class LinkedList:
         return
 
     def add_end_node(self, data):
-        newNode = Node(data)
+        newNode = self.node(data)
         
         # If there are no nodes
         if self.head is None: 
@@ -86,7 +85,7 @@ class LinkedList:
             return
         
         while curr is not None:
-            newNode = Node(insVal)
+            newNode = self.node(insVal)
             if curr.data == val:
                 if curr.next is not None:
                     tmp = curr.next
@@ -113,7 +112,7 @@ class LinkedList:
             return
         
         while curr is not None:
-            newNode = Node(insVal)
+            newNode = self.node(insVal)
             if curr.data == val:
                 if curr.prev is not None:
                     tmp = curr.prev
