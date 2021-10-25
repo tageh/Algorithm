@@ -1,0 +1,19 @@
+InsertNode(Node root, int data):
+    O(log(n))
+    Takes a root node and a key as input
+    Outputs root object
+
+minVer(Node root):
+    O(log(n)) time and O(1) space
+    Takes a root node as input
+    Outputs the smalest object in the tree
+
+maxVer(Node root):
+    O(log(n)) time and O(1) space
+    Takes a root node as input
+    Outputs the largest object in the tree 
+
+breathFirstSeach(Node root):
+    O(n)
+    Takes a root node as input
+    Prints out the tree branch by branch
